@@ -81,8 +81,6 @@ They favor **behavior and payment** over opinions, page views, and compliments.
 
 Several skills reference a `discovery/<topic-slug>/` folder layout for saving artifacts (`briefs/`, `research/`, `experiments/`, `scorecards/`). That layout is optional — skills still work without it; ask the agent to save outputs wherever you prefer.
 
-For the full phased playbook that pairs with these skills, see the companion [ideation](https://github.com/eltntawy/ideation) workspace.
-
 ## Skill structure
 
 Each skill is a directory under `skills/` containing:
