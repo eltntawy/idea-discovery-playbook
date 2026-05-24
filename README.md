@@ -15,21 +15,21 @@ npx skills add eltntawy/ideation-discovery-skills --list   # list skills
 
 Type `/` in chat — no need to memorize skill names.
 
-| Command | Action |
+| Command | Skill |
 | --- | --- |
-| `/validate` | Full validation flow (entry point) |
-| `/validate-short` | Weekend path |
-| `/validate-assumptions` | Assumption map |
-| `/validate-interviews` | Problem interviews |
-| `/validate-market` | Market + competitors |
-| `/validate-experiment` | Demand test design |
-| `/validate-scorecard` | Go / no-go scorecard |
-| `/validate-synthesis` | One summary report |
+| `/discovery-playbook` | Full flow (entry point) |
+| `/discovery-playbook-short` | Weekend path |
+| `/assumption-map` | Assumption map |
+| `/problem-discovery` | Problem interviews |
+| `/discover-market` | Market + competitors |
+| `/validation-experiments` | Demand test design |
+| `/idea-scorecard` | Go / no-go scorecard |
+| `/discovery-synthesis` | One summary report |
 
 Example:
 
 ```text
-/validate A board for solo founders to track validation experiments. Topic slug: solo-validation-board
+/discovery-playbook A board for solo founders to track validation experiments. Topic slug: solo-validation-board
 ```
 
 Commands ship in `.cursor/commands/` and `.claude/commands/`. Copilot: `.github/prompts/*.prompt.md` (enable `chat.promptFiles` in VS Code). See [commands/README.md](commands/README.md) for copy-to-global steps.

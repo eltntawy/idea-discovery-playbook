@@ -1,6 +1,6 @@
 Run the **discovery-playbook** skill from **ideation-discovery-skills**.
 
-Validate this idea **end to end** (phases 0–7). Treat any text the user typed **after** `/validate` as the idea, ICP hints, and constraints.
+Validate this idea **end to end** (phases 0–7). Treat any text the user typed **after** `/discovery-playbook` as the idea, ICP hints, and constraints.
 
 - Propose a `topic-slug` if missing.
 - Create `discovery/INDEX.md` and `discovery/<slug>/` if missing.

@@ -8,21 +8,21 @@ npx skills add eltntawy/ideation-discovery-skills -g -y
 
 ## Command list
 
-| Command | What it runs |
+| Command | Skill |
 | --- | --- |
-| `/validate` | Full flow — `discovery-playbook` (phases 0–7) |
-| `/validate-short` | Weekend path — assumptions → interviews → experiment → scorecard |
-| `/validate-assumptions` | `assumption-map` |
-| `/validate-interviews` | `problem-discovery` |
-| `/validate-market` | `market-research` + `competitor-landscape` |
-| `/validate-experiment` | `validation-experiments` |
-| `/validate-scorecard` | `idea-scorecard` |
-| `/validate-synthesis` | `discovery-synthesis` |
+| `/discovery-playbook` | Full flow (phases 0–7) |
+| `/discovery-playbook-short` | Weekend path — assumptions → interviews → experiment → scorecard |
+| `/assumption-map` | `assumption-map` |
+| `/problem-discovery` | `problem-discovery` |
+| `/discover-market` | `market-research` + `competitor-landscape` |
+| `/validation-experiments` | `validation-experiments` |
+| `/idea-scorecard` | `idea-scorecard` |
+| `/discovery-synthesis` | `discovery-synthesis` |
 
-Add your idea **after** the command, for example:
+Command names match skill names where possible (`/discover-market` runs two skills). Add your idea **after** the command, for example:
 
 ```text
-/validate A tool for solo founders to track validation experiments in one place. Topic slug: solo-validation-board
+/discovery-playbook A tool for solo founders to track validation experiments in one place. Topic slug: solo-validation-board
 ```
 
 ---
@@ -43,7 +43,7 @@ Copy-Item -Recurse .cursor\commands $env:USERPROFILE\.cursor\commands\ideation-d
 cp -r .cursor/commands ~/.cursor/commands/ideation-discovery
 ```
 
-Or symlink `~/.cursor/commands/validate.md` → this repo’s file.
+Or symlink `~/.cursor/commands/discovery-playbook.md` → this repo’s file.
 
 Skills must still be installed globally (`-g`) or in the project (`.cursor/skills/` or via `npx skills add`).
 
@@ -51,12 +51,12 @@ Skills must still be installed globally (`-g`) or in the project (`.cursor/skill
 
 ## Claude Code
 
-Commands live in [`.claude/commands/`](../.claude/commands/). Type `/validate` in Claude Code.
+Commands live in [`.claude/commands/`](../.claude/commands/). Type `/discovery-playbook` in Claude Code.
 
 Uses `$ARGUMENTS` for text after the command:
 
 ```text
-/validate My idea: validation board for solo founders. slug: solo-board
+/discovery-playbook My idea: validation board for solo founders. slug: solo-board
 ```
 
 **User-wide:**
@@ -74,10 +74,10 @@ Skills: same `npx skills add` install; Claude also loads `.claude/skills/` when 
 Prompt files live in [`.github/prompts/`](../.github/prompts/) (`*.prompt.md`).
 
 1. Enable prompt files: Settings → `"chat.promptFiles": true`
-2. In Copilot Chat, type `/validate` (or attach via **Prompt...**)
+2. In Copilot Chat, type `/discovery-playbook` (or attach via **Prompt...**)
 3. Add your idea in the chat box
 
-Subset shipped: `validate`, `validate-short`, `validate-scorecard`. Copy other `.cursor/commands/*.md` into `.github/prompts/` as `name.prompt.md` if you want the full set.
+Subset shipped: `discovery-playbook`, `discovery-playbook-short`, `idea-scorecard`. Copy other `.cursor/commands/*.md` into `.github/prompts/` as `name.prompt.md` if you want the full set.
 
 Optional repo instructions: add a line to `.github/copilot-instructions.md` pointing agents to install and use `discovery-playbook` for idea validation.
 
@@ -88,7 +88,7 @@ Optional repo instructions: add a line to `.github/copilot-instructions.md` poin
 | | Commands | Skills |
 | --- | --- | --- |
 | **What** | Short prompt you type with `/` | Full workflow in `skills/*/SKILL.md` |
-| **When** | You pick `/validate` in chat | Agent follows skill steps |
+| **When** | You pick `/discovery-playbook` in chat | Agent follows skill steps |
 | **Install** | Copy `.cursor/commands` or `.claude/commands` | `npx skills add eltntawy/ideation-discovery-skills -g -y` |
 
 Commands tell the agent **which skill to run**; skills contain the detailed checklists and outputs.

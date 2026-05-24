@@ -5,6 +5,6 @@ Run these skills in order for a **weekend validation** (ideation-discovery-skill
 3. `validation-experiments` (priced fake door / pre-sale)
 4. `idea-scorecard`
 
-Use text after `/validate-short` as the idea. Propose a topic slug and `discovery/<slug>/` if missing.
+Use text after `/discovery-playbook-short` as the idea. Propose a topic slug and `discovery/<slug>/` if missing.
 
 Do not recommend build unless scorecard is Strong or Conditional go.
