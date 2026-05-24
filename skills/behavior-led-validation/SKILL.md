@@ -1,148 +1,81 @@
 ---
 name: behavior-led-validation
 description: >-
-  Runs behavior-led idea and market validation with problem interviews, pre-sales
-  smoke tests, paid traffic experiments, search and forum demand signals, competitor
-  revenue estimation, unit economics, and 2026 benchmarks. Use when validating a
-  business idea, testing willingness to pay, measuring demand, estimating competitor
-  MRR or ARR, or choosing validation experiments before build.
+  Orchestrates behavior-led idea and market validation—problem interviews, pretotype
+  experiments, paid traffic, demand proxies, competitor revenue estimates, and unit
+  economics—before build. Use when validating a business idea end-to-end, testing
+  willingness to pay, or planning experiments before build.
 disable-model-invocation: true
 ---
 
 # Behavior-Led Validation
 
+**Orchestrator skill.** For depth on one step, invoke the child skill listed below. For stage gates and artifact order, start with `discovery-playbook`.
+
 ## Principle
 
-Validate with **observed behavior and payment**, not opinions. Treat compliments, likes, and hypothetical interest as weak evidence. Strongest signal: customers pay at the target price before software exists.
+Validate with **observed behavior and payment**, not opinions. Strongest signal: customers pay at the target price before software exists.
 
-Keep validation types in order: **idea validation** (worth deeper research) → **market validation** (demand, reach, economics) → **product validation** (solution fit after a prototype). Do not treat landing pages, ad tests, or concierge delivery as product validation.
+Validation order: **idea validation** → **market validation** → **product validation** (after a prototype). Landing pages, ad tests, and concierge delivery are not product validation.
 
-## When to use
+## Workspace rules
 
-Use this skill for an end-to-end validation plan or execution memo. For depth on one slice, also read:
+- **No-build boundary:** no production app scaffold until `idea-scorecard` records **Strong go** or **Conditional go**.
+- Read `discovery/INDEX.md` and only `discovery/<topic-slug>/` before extending work. Create `discovery/INDEX.md` if missing.
+- **Do not** open `discovery/archive/` unless the user explicitly asks.
 
-- `problem-discovery` — Mom Test interviews, ICP, pain scoring
-- `validation-experiments` — experiment loop, thresholds, artifact template
-- `market-sizing` — bottom-up TAM, SAM, SOM
-- `competitor-landscape` — competitor matrix and positioning
-- `revenue-model` — pricing scenarios and LTV:CAC math
-- `market-research` — live web gap and current-market analysis
+## Phase map
 
-Respect the workspace **no-build boundary**: no production app scaffold until a scorecard records **Strong go** or **Conditional go**.
+| Phase                    | Goal                            | Primary skills                                                                                   |
+| ------------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Idea                     | Problem is real and painful     | `assumption-map`, `problem-discovery`, `regulatory-risk-scan` (if regulated), `feasibility-gate` |
+| Market                   | Demand, wedge, economics        | `market-research`, `competitor-landscape`, `market-sizing`, `positioning-wedge`, `revenue-model` |
+| Demand test              | Falsify riskiest assumptions    | `validation-experiments`                                                                         |
+| Decision                 | Go / conditional / pivot / kill | `idea-scorecard`, `discovery-synthesis`                                                          |
+| Product (post-prototype) | Solution fit                    | `pmf-sean-ellis`                                                                                 |
 
-Read `discovery/INDEX.md` and only the active research folder at `discovery/<topic-slug>/` before extending work. **Do not** list, open, search, or summarize `discovery/archive/` unless the user explicitly requests archived research.
+## Phase 1 — Idea and market demand (summary)
 
-## Phase 1 — Idea and market demand
+1. **Problem interviews** — follow `problem-discovery` (15–20 ICP, Mom Test ladder, commitments). Optional switching depth → `jtbd-interviews`.
+2. **Willingness to pay** — priced landing + Stripe or equivalent; thresholds in `validation-experiments`. Not validated: email-only waitlist.
+3. **Paid traffic** — ~$100–$500; track CTR and conversion; compute **ILI** when applicable (see `validation-experiments`).
+4. **Desk demand** — keywords and forums as **research priority** proxies only; pair with payment or interviews.
 
-### 1. Problem interviews (qualitative)
+Save under `discovery/<topic-slug>/briefs/`, `research/`, or `experiments/`.
 
-| Item | Guidance |
-| --- | --- |
-| Target | 15–20 potential customers in the ICP |
-| Core questions | "How do you solve this problem today?" and "What's the hardest part about that?" |
-| Look for | Recurring complaints about current, inferior solutions; workarounds; time or money already spent |
-| Weak signal | Idea praise, future intent, or friend feedback without behavior |
+## Phase 2 — Revenue and costs (summary)
 
-Save interview evidence in `discovery/<topic-slug>/briefs/` or `discovery/<topic-slug>/research/`. Follow `problem-discovery` for scripts and kill criteria.
+- Competitor revenue: headcount heuristic, mobile estimates, aggregators — label all as assumptions.
+- Unit economics: **LTV:CAC ≥ 3:1** for strong go; **&lt; 2:1** kill — see `revenue-model` bands.
+- Reference metric bands (directional, verify for segment): seed MRR narratives, B2B retention, NPS — not pass/fail without context.
 
-### 2. Willingness to pay (pre-sale / smoke test)
+Full scenarios → `revenue-model`.
 
-| Item | Guidance |
-| --- | --- |
-| Surface | One-page landing (Carrd, Webflow, or equivalent) with clear offer and pricing table |
-| Offer | Early access, beta pricing, or pre-order via Stripe payment link **before** building product |
-| Validated when | Visitor completes payment or leaves card details for the stated offer |
-| Not validated | Email-only signup, waitlist without commitment, or unpriced interest |
+## Evidence mapping
 
-Design thresholds with `validation-experiments`. Save plans and results under `discovery/<topic-slug>/experiments/`.
+Use the **canonical hierarchy** in `idea-scorecard` (levels 1–5). Quick reference:
 
-### 3. Low-cost paid traffic (quantitative)
+| Label                                | Maps to level |
+| ------------------------------------ | ------------- |
+| L0–L1 views, likes, compliments      | 1–2           |
+| L2 waitlist / signup                 | 3             |
+| L3 repeat use, design-partner time   | 4             |
+| L4 deposit, LOI, pilot               | 5             |
+| L5 recurring payment at target price | 5             |
 
-| Item | Guidance |
-| --- | --- |
-| Channels | Meta Ads or Google Ads |
-| Budget | Roughly $100–$500 to the landing or pre-sale page |
-| Metrics | CTR to the page; conversion to signup or pre-sale |
-| Interpretation | Use as a demand proxy with audience and offer quality noted; pair with interviews or payment evidence |
+**Strong go** still requires the weighted scorecard bar in `idea-scorecard`.
 
-### 4. Existing demand signals (desk research)
+## Strongest path
 
-| Source | What to capture |
-| --- | --- |
-| Keywords | SEMrush or Ahrefs — search volume and CPC for problem and solution terms |
-| Communities | Reddit, Discord, niche forums — threads asking for solutions or comparing tools |
-| Rule | High volume or CPC supports **research priority**, not proof of payment |
+When feasible: **concierge MVP** for a small paid cohort, then automate. Sequence with fake door → concierge per `validation-experiments`.
 
-Cross-check with `market-sizing`; label search and forum signals as proxies.
+## Regulated ideas
 
-## Phase 2 — Revenue, costs, and MRR
-
-### 1. Competitor revenue estimation
-
-| Method | How |
-| --- | --- |
-| Headcount heuristic | LinkedIn employee count × **$150k–$200k** per employee → rough ARR band (label as assumption) |
-| Mobile | AppMagic, SensorTower — downloads and revenue estimates where applicable |
-| Aggregators | BigIdeasDB and similar — reported revenue for comparable startups |
-
-Record sources, formulas, and sensitivity in `discovery/<topic-slug>/research/`. Never present estimates as audited financials.
-
-### 2. Costs and unit economics
-
-| Area | Guidance |
-| --- | --- |
-| Benchmarks | IdeaProof or manual worksheets — MRR, ARR, churn, LTV, CAC |
-| Target | **CAC < LTV ÷ 3** (equivalently LTV:CAC ≥ 3:1) unless the memo documents why a different bar applies |
-| Ad longevity | Meta Ad Library — long-running competitor ads as a weak profitability signal, not proof |
-
-Use `revenue-model` for scenario tables and payback.
-
-### 3. Key metrics (2026 reference bands)
-
-| Metric | Reference band |
-| --- | --- |
-| MRR / ARR | Seed-stage narratives often cite **$10k–$50k MRR** with **~15–20% MoM** growth where evidenced |
-| Retention | B2B SaaS often targets **~70–80%** logo or revenue retention at 12 months |
-| NPS | **> 30** B2B; **> 50** B2C as directional quality bars |
-
-Treat bands as comparables for analysis, not pass/fail gates without segment context.
-
-## Tool map
-
-| Job | Examples |
-| --- | --- |
-| Validation / metrics | IdeaProof |
-| Traffic / keywords | SEMrush, Ahrefs |
-| Landing + pre-sale | Carrd (or Webflow) + Stripe |
-| Mobile metrics | AppMagic, SensorTower |
-| Startup revenue data | BigIdeasDB |
-| Competitor ads | Meta Ad Library |
-
-Prefer the smallest toolset that answers the current assumption; cite what was actually checked.
-
-## Strongest validation path
-
-When feasible, run a **concierge MVP**: deliver the outcome manually for a small paid cohort before automating in software. Pair with pre-sales or design-partner commitments where appropriate.
-
-## Evidence ladder (workspace)
-
-| Level | Examples | Weight |
-| --- | --- | --- |
-| L0–L1 | Views, likes, compliments | Context only |
-| L2 | Waitlist, detailed signup | Supporting |
-| L3 | Repeat use, workflow adoption | Strong supporting |
-| L4 | Deposit, LOI, prepay, pilot | Strong |
-| L5 | Recurring payment at target price | Strongest |
-
-Strong go still requires the workspace scorecard bar (see `idea-scorecard` and `discovery/SYSTEM-RESEARCH.md`).
+If health, fintech, legal, or similar constraints apply → `regulatory-risk-scan` before scaling tests.
 
 ## Output checklist
 
-- [ ] State riskiest assumption and validation phase (idea / market / product)
-- [ ] List methods run or planned with success and kill thresholds
-- [ ] Separate **facts**, **assumptions**, and **evidence** with sources
-- [ ] Label revenue and competitor estimates with formulas and ranges
-- [ ] Record **Decision** and **Next experiment**
-- [ ] Save artifacts under `discovery/<topic-slug>/` (`briefs/`, `research/`, or `experiments/`) with dated filenames; update `discovery/INDEX.md` when opening or archiving a topic
-
-Default memo sections: **Facts**, **Assumptions**, **Evidence**, **Analysis**, **Decision**, **Next experiment**.
+- [ ] State validation phase and riskiest assumption
+- [ ] List child skills invoked or planned
+- [ ] Facts / Assumptions / Evidence / Analysis / Decision / Next experiment
+- [ ] Update `discovery/INDEX.md` when opening or archiving a topic

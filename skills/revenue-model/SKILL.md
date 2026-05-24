@@ -13,17 +13,25 @@ disable-model-invocation: true
 - [ ] Build base, upside, and downside scenarios
 - [ ] Estimate CAC by channel
 - [ ] Compute ARPU, churn, LTV, payback, and LTV:CAC
-- [ ] Record whether economics support a strong go
+- [ ] Record whether economics support strong go, conditional go, or kill
 
 ## Scenario table
 
 | Scenario | Price | Adoption | CAC | Churn | LTV | LTV:CAC | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Base |  |  |  |  |  |  |  |
-| Upside |  |  |  |  |  |  |  |
-| Downside |  |  |  |  |  |  |  |
+| -------- | ----- | -------- | --- | ----- | --- | ------- | ----- |
+| Base     |       |          |     |       |     |         |       |
+| Upside   |       |          |     |       |     |         |       |
+| Downside |       |          |     |       |     |         |       |
 
-Default monthly churn to 5% unless evidence says otherwise. Require LTV:CAC >= 3:1 for a strong go.
+Default monthly churn to 5% unless evidence says otherwise.
+
+## LTV:CAC decision bands (canonical)
+
+| LTV:CAC (base case) | Interpretation                                                                  |
+| ------------------- | ------------------------------------------------------------------------------- |
+| **< 2:1**           | Kill cue — economics do not support the stated goal                             |
+| **2:1 to < 3:1**    | Conditional go only — name the gap (price, CAC, churn, segment)                 |
+| **≥ 3:1**           | Meets bar for **Strong go** on unit economics (with scorecard and other stages) |
 
 ## Willingness to pay
 

@@ -3,29 +3,43 @@
   "notGrouped": "bottom",
   "groupings": [
     {
+      "title": "Playbook",
+      "description": "End-to-end orchestration, assumptions, synthesis, and go/no-go.",
+      "skills": [
+        "discovery-playbook",
+        "assumption-map",
+        "discovery-synthesis",
+        "idea-scorecard",
+        "feasibility-gate"
+      ]
+    },
+    {
       "title": "Discovery",
-      "description": "Problem interviews, ICP definition, and behavior-led validation before build.",
+      "description": "Problem, JTBD, and behavior-led validation before build.",
       "skills": [
         "problem-discovery",
+        "jtbd-interviews",
         "behavior-led-validation"
       ]
     },
     {
       "title": "Market",
-      "description": "Live market research, bottom-up sizing, and competitor landscape mapping.",
+      "description": "Research, sizing, competitors, positioning, and revenue.",
       "skills": [
         "market-research",
         "market-sizing",
-        "competitor-landscape"
+        "competitor-landscape",
+        "positioning-wedge",
+        "revenue-model"
       ]
     },
     {
-      "title": "Decision",
-      "description": "Demand experiments, revenue modeling, and weighted go or kill scorecards.",
+      "title": "Experiments and risk",
+      "description": "Pretotype tests, compliance scan, and post-build PMF.",
       "skills": [
         "validation-experiments",
-        "revenue-model",
-        "idea-scorecard"
+        "regulatory-risk-scan",
+        "pmf-sean-ellis"
       ]
     }
   ]

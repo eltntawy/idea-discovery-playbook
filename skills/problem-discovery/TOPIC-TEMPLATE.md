@@ -8,12 +8,12 @@
 
 ## Artifact map
 
-| Kind | Path |
-| --- | --- |
-| Brief | `briefs/` |
-| Research | `research/` |
+| Kind        | Path           |
+| ----------- | -------------- |
+| Brief       | `briefs/`      |
+| Research    | `research/`    |
 | Experiments | `experiments/` |
-| Scorecards | `scorecards/` |
+| Scorecards  | `scorecards/`  |
 
 ## Current decision
 
