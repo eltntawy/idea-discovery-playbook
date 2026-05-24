@@ -1,0 +1,1 @@
+Weekend path (ideation-discovery-skills): `assumption-map` → `problem-discovery` (8–10 interviews) → `validation-experiments` (priced landing) → `idea-scorecard`. No build unless Strong or Conditional go. Use the user's message for the idea and topic slug.

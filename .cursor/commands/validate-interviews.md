@@ -1,0 +1,7 @@
+Run the **problem-discovery** skill (ideation-discovery-skills).
+
+Provide Mom Test interview plan: ICP, question ladder, 15–20 target count, notes template, batch review, kill criteria.
+
+Use text after the command for idea, ICP, and topic slug.
+
+Save to `discovery/<slug>/briefs/YYYY-MM-DD-<slug>-brief.md`.

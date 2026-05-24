@@ -11,6 +11,29 @@ npx skills add eltntawy/ideation-discovery-skills -g -y
 npx skills add eltntawy/ideation-discovery-skills --list   # list skills
 ```
 
+## Chat commands (Cursor, Claude Code, Copilot)
+
+Type `/` in chat — no need to memorize skill names.
+
+| Command | Action |
+| --- | --- |
+| `/validate` | Full validation flow (entry point) |
+| `/validate-short` | Weekend path |
+| `/validate-assumptions` | Assumption map |
+| `/validate-interviews` | Problem interviews |
+| `/validate-market` | Market + competitors |
+| `/validate-experiment` | Demand test design |
+| `/validate-scorecard` | Go / no-go scorecard |
+| `/validate-synthesis` | One summary report |
+
+Example:
+
+```text
+/validate A board for solo founders to track validation experiments. Topic slug: solo-validation-board
+```
+
+Commands ship in `.cursor/commands/` and `.claude/commands/`. Copilot: `.github/prompts/*.prompt.md` (enable `chat.promptFiles` in VS Code). See [commands/README.md](commands/README.md) for copy-to-global steps.
+
 ## Entry point
 
 **`discovery-playbook`** — start here for the full flow. Invoke it **by name** (skills use `disable-model-invocation: true`):
