@@ -1,4 +1,4 @@
-Run these skills in order for a **weekend validation** (ideation-discovery-skills):
+Run these skills in order for a **weekend validation** (idea-discovery-playbook):
 
 1. `assumption-map`
 2. `problem-discovery` (8–10 Mom Test interviews)

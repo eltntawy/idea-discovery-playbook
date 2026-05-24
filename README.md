@@ -1,11 +1,11 @@
-# Ideation Discovery Skills
+# Idea Discovery Playbook
 
-Validate a **software idea before you build** — interviews, market research, economics, pretotype tests, go/no-go scorecards. [Agent Skills](https://agentskills.io/) · [skills.sh](https://skills.sh/b/eltntawy/ideation-discovery-skills)
+Validate a **software idea before you build** — interviews, market research, economics, pretotype tests, go/no-go scorecards. [Agent Skills](https://agentskills.io/) · [skills.sh](https://skills.sh/b/eltntawy/idea-discovery-playbook)
 
 ## Install
 
 ```bash
-npx skills add eltntawy/ideation-discovery-skills -g -y
+npx skills add eltntawy/idea-discovery-playbook -g -y
 ```
 
 ## Start
@@ -53,7 +53,7 @@ flowchart LR
 `discovery-playbook` · `assumption-map` · `problem-discovery` · `jtbd-interviews` · `behavior-led-validation` · `market-research` · `market-sizing` · `competitor-landscape` · `positioning-wedge` · `revenue-model` · `feasibility-gate` · `validation-experiments` · `idea-scorecard` · `discovery-synthesis` · `regulatory-risk-scan` · `pmf-sean-ellis`
 
 ```bash
-npx skills add eltntawy/ideation-discovery-skills --list
+npx skills add eltntawy/idea-discovery-playbook --list
 ```
 
 Details: `skills/discovery-playbook/SKILL.md`. Optional artifacts: `discovery/<slug>/` (briefs, research, experiments, scorecards).

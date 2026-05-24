@@ -1,4 +1,4 @@
-Run **validation-experiments** (ideation-discovery-skills).
+Run **validation-experiments** (idea-discovery-playbook).
 
 $ARGUMENTS
 

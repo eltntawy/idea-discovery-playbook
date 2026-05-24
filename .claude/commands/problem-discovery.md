@@ -1,4 +1,4 @@
-Run **problem-discovery** (ideation-discovery-skills).
+Run **problem-discovery** (idea-discovery-playbook).
 
 $ARGUMENTS
 

@@ -1,4 +1,4 @@
-Run **idea-scorecard** (ideation-discovery-skills). Read `discovery/<slug>/` artifacts first.
+Run **idea-scorecard** (idea-discovery-playbook). Read `discovery/<slug>/` artifacts first.
 
 $ARGUMENTS
 

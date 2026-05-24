@@ -1,4 +1,4 @@
-Run the **validation-experiments** skill (ideation-discovery-skills).
+Run the **validation-experiments** skill (idea-discovery-playbook).
 
 Design the smallest test that falsifies the riskiest assumption: method (fake door / smoke / concierge), **priced** offer, success/fail thresholds, ILI formula, ethical post-CTA copy.
 

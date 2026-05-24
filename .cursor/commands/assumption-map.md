@@ -1,4 +1,4 @@
-Run the **assumption-map** skill (ideation-discovery-skills).
+Run the **assumption-map** skill (idea-discovery-playbook).
 
 List top assumptions, evidence tiers, and cheapest falsifying tests. Use text after `/assumption-map` for the idea and topic slug (propose slug if missing).
 

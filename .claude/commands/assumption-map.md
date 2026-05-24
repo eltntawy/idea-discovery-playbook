@@ -1,4 +1,4 @@
-Run **assumption-map** (ideation-discovery-skills).
+Run **assumption-map** (idea-discovery-playbook).
 
 $ARGUMENTS
 

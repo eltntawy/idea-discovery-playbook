@@ -1,4 +1,4 @@
-Weekend validation — run in order (ideation-discovery-skills): `assumption-map` → `problem-discovery` (8–10 interviews) → `validation-experiments` (priced test) → `idea-scorecard`.
+Weekend validation — run in order (idea-discovery-playbook): `assumption-map` → `problem-discovery` (8–10 interviews) → `validation-experiments` (priced test) → `idea-scorecard`.
 
 $ARGUMENTS
 

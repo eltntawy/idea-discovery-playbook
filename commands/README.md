@@ -1,9 +1,9 @@
 # Chat commands
 
-Reusable prompts for **Cursor**, **Claude Code**, and **GitHub Copilot**. They invoke the [ideation-discovery-skills](../README.md) pack — install skills first:
+Reusable prompts for **Cursor**, **Claude Code**, and **GitHub Copilot**. They invoke the [idea-discovery-playbook](../README.md) pack — install skills first:
 
 ```bash
-npx skills add eltntawy/ideation-discovery-skills -g -y
+npx skills add eltntawy/idea-discovery-playbook -g -y
 ```
 
 ## Command list
@@ -37,10 +37,10 @@ Commands live in [`.cursor/commands/`](../.cursor/commands/). Type `/` in **Agen
 
 ```bash
 # Windows (PowerShell)
-Copy-Item -Recurse .cursor\commands $env:USERPROFILE\.cursor\commands\ideation-discovery
+Copy-Item -Recurse .cursor\commands $env:USERPROFILE\.cursor\commands\idea-discovery-playbook
 
 # macOS / Linux
-cp -r .cursor/commands ~/.cursor/commands/ideation-discovery
+cp -r .cursor/commands ~/.cursor/commands/idea-discovery-playbook
 ```
 
 Or symlink `~/.cursor/commands/discovery-playbook.md` → this repo’s file.
@@ -62,7 +62,7 @@ Uses `$ARGUMENTS` for text after the command:
 **User-wide:**
 
 ```bash
-cp -r .claude/commands ~/.claude/commands/ideation-discovery
+cp -r .claude/commands ~/.claude/commands/idea-discovery-playbook
 ```
 
 Skills: same `npx skills add` install; Claude also loads `.claude/skills/` when present.
@@ -89,6 +89,6 @@ Optional repo instructions: add a line to `.github/copilot-instructions.md` poin
 | --- | --- | --- |
 | **What** | Short prompt you type with `/` | Full workflow in `skills/*/SKILL.md` |
 | **When** | You pick `/discovery-playbook` in chat | Agent follows skill steps |
-| **Install** | Copy `.cursor/commands` or `.claude/commands` | `npx skills add eltntawy/ideation-discovery-skills -g -y` |
+| **Install** | Copy `.cursor/commands` or `.claude/commands` | `npx skills add eltntawy/idea-discovery-playbook -g -y` |
 
 Commands tell the agent **which skill to run**; skills contain the detailed checklists and outputs.

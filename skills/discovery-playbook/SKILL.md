@@ -10,6 +10,8 @@ disable-model-invocation: true
 
 # Discovery Playbook
 
+**Repository:** [idea-discovery-playbook](https://github.com/eltntawy/idea-discovery-playbook) — `npx skills add eltntawy/idea-discovery-playbook -g -y`
+
 **Start here** for full idea validation. Invoke one child skill per stage; do not skip gates without user consent.
 
 ## Validation phases

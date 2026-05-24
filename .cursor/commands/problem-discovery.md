@@ -1,4 +1,4 @@
-Run the **problem-discovery** skill (ideation-discovery-skills).
+Run the **problem-discovery** skill (idea-discovery-playbook).
 
 Provide Mom Test interview plan: ICP, question ladder, 15–20 target count, notes template, batch review, kill criteria.
 

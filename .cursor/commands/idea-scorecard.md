@@ -1,4 +1,4 @@
-Run the **idea-scorecard** skill (ideation-discovery-skills).
+Run the **idea-scorecard** skill (idea-discovery-playbook).
 
 Read all artifacts under `discovery/<slug>/` first. Produce weighted scorecard (/75), assumption ledger, LTV:CAC band, and go / conditional / pivot / kill decision.
 

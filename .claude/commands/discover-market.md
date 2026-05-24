@@ -1,4 +1,4 @@
-Run **market-research** then **competitor-landscape** (ideation-discovery-skills).
+Run **market-research** then **competitor-landscape** (idea-discovery-playbook).
 
 $ARGUMENTS
 

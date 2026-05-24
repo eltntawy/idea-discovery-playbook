@@ -1,4 +1,4 @@
-Run the **discovery-playbook** skill from **ideation-discovery-skills**.
+Run the **discovery-playbook** skill from **idea-discovery-playbook**.
 
 Validate this idea **end to end** (phases 0–7). Treat any text the user typed **after** `/discovery-playbook` as the idea, ICP hints, and constraints.
 
@@ -10,5 +10,5 @@ Validate this idea **end to end** (phases 0–7). Treat any text the user typed 
 If skills are not installed:
 
 ```bash
-npx skills add eltntawy/ideation-discovery-skills -g -y
+npx skills add eltntawy/idea-discovery-playbook -g -y
 ```
