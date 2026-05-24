@@ -1,0 +1,32 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Discovery",
+      "description": "Problem interviews, ICP definition, and behavior-led validation before build.",
+      "skills": [
+        "problem-discovery",
+        "behavior-led-validation"
+      ]
+    },
+    {
+      "title": "Market",
+      "description": "Live market research, bottom-up sizing, and competitor landscape mapping.",
+      "skills": [
+        "market-research",
+        "market-sizing",
+        "competitor-landscape"
+      ]
+    },
+    {
+      "title": "Decision",
+      "description": "Demand experiments, revenue modeling, and weighted go or kill scorecards.",
+      "skills": [
+        "validation-experiments",
+        "revenue-model",
+        "idea-scorecard"
+      ]
+    }
+  ]
+}

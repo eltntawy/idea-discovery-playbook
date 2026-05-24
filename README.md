@@ -6,6 +6,21 @@ Skills follow the [Agent Skills](https://agentskills.io/) format and install wit
 
 [![skills.sh](https://skills.sh/b/eltntawy/ideation-discovery-skills)](https://skills.sh/eltntawy/ideation-discovery-skills)
 
+## Quick install
+
+```bash
+npx skills add eltntawy/ideation-discovery-skills -g -y
+```
+
+Install a single skill:
+
+```bash
+npx skills add eltntawy/ideation-discovery-skills@problem-discovery -g -y
+npx skills add eltntawy/ideation-discovery-skills@idea-scorecard -g -y
+```
+
+Find on [skills.sh](https://skills.sh/eltntawy/ideation-discovery-skills) after the first installs register telemetry (usually within a few hours).
+
 ## Available skills
 
 | Skill | Use when |
