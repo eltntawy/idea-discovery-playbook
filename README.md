@@ -1,131 +1,63 @@
 # Ideation Discovery Skills
 
-Agent skills for **software idea validation** before you build — interviews, market research, economics, pretotype tests, and go/no-go scorecards. [Agent Skills](https://agentskills.io/) format · [Skills CLI](https://github.com/vercel-labs/skills).
-
-[![skills.sh](https://skills.sh/b/eltntawy/ideation-discovery-skills)](https://skills.sh/eltntawy/ideation-discovery-skills)
+Validate a **software idea before you build** — interviews, market research, economics, pretotype tests, go/no-go scorecards. [Agent Skills](https://agentskills.io/) · [skills.sh](https://skills.sh/b/eltntawy/ideation-discovery-skills)
 
 ## Install
 
 ```bash
 npx skills add eltntawy/ideation-discovery-skills -g -y
-npx skills add eltntawy/ideation-discovery-skills --list   # list skills
 ```
 
-## Chat commands (Cursor, Claude Code, Copilot)
+## Start
 
-Type `/` in chat — no need to memorize skill names.
-
-| Command | Skill |
-| --- | --- |
-| `/discovery-playbook` | Full flow (entry point) |
-| `/discovery-playbook-short` | Weekend path |
-| `/assumption-map` | Assumption map |
-| `/problem-discovery` | Problem interviews |
-| `/discover-market` | Market + competitors |
-| `/validation-experiments` | Demand test design |
-| `/idea-scorecard` | Go / no-go scorecard |
-| `/discovery-synthesis` | One summary report |
-
-Example:
-
-```text
-/discovery-playbook A board for solo founders to track validation experiments. Topic slug: solo-validation-board
-```
-
-Commands ship in `.cursor/commands/` and `.claude/commands/`. Copilot: `.github/prompts/*.prompt.md` (enable `chat.promptFiles` in VS Code). See [commands/README.md](commands/README.md) for copy-to-global steps.
-
-## Entry point
-
-**`discovery-playbook`** — start here for the full flow. Invoke it **by name** (skills use `disable-model-invocation: true`):
+**Entry:** `discovery-playbook` (phases 0–7) — in chat use **`/discovery-playbook`** or:
 
 ```text
 Use discovery-playbook to validate this idea end to end:
-
-A board that helps solo founders track validation experiments instead of scattered Notion pages.
-
+A board for solo founders to track validation experiments.
 Topic slug: solo-validation-board
 ```
 
-Or: `/discovery-playbook`
+**Build only after** `idea-scorecard` → **Strong go** (60–75) or **Conditional go** (45–59). Stops early on kill gates.
 
-The agent runs phases 0–7, saves artifacts under `discovery/<slug>/` (optional), and stops early if a kill gate fails. **Build only after** `idea-scorecard` → **Strong go** (60–75) or **Conditional go** (45–59).
+**Weekend path:** `/discovery-playbook-short` — or `assumption-map` → `problem-discovery` → `validation-experiments` → `idea-scorecard`.
 
-## Flow (phases 0–7)
+| Slash command | Skill |
+| --- | --- |
+| `/discovery-playbook` | Full flow |
+| `/discovery-playbook-short` | Weekend path |
+| `/assumption-map` | Assumptions |
+| `/problem-discovery` | Interviews |
+| `/discover-market` | Market + competitors |
+| `/validation-experiments` | Demand test |
+| `/idea-scorecard` | Go / no-go |
+| `/discovery-synthesis` | Summary report |
+
+`npx skills add` installs **skills** only. Slash commands live in `.cursor/commands/` (this repo) — [commands/README.md](commands/README.md) to copy globally.
+
+## Flow
 
 ```mermaid
 flowchart LR
-  P0[0 Frame] --> P1[1 Idea] --> P2[2 Market] --> P3[3 Economics]
-  P3 --> P4[4 Feasibility] --> P5[5 Demand test] --> P6[6 Scorecard] --> P7[7 Synthesis]
-  P6 -->|Strong / Conditional go| BUILD[Build v1]
-  BUILD --> PMF[pmf-sean-ellis]
+  P0[Frame] --> P1[Idea] --> P2[Market] --> P3[Economics]
+  P3 --> P4[Feasibility] --> P5[Test] --> P6[Scorecard] --> P7[Synthesis]
+  P6 -->|Go| BUILD[Build]
 ```
 
-| Phase | Skills | Exit |
-| --- | --- | --- |
-| 0 Frame | `assumption-map`, `regulatory-risk-scan` if needed | Top assumptions + tests |
-| 1 Idea | `problem-discovery`, optional `jtbd-interviews` | Problem validated (~half+ interviews) |
-| 2 Market | `market-research`, `competitor-landscape` | Wedge + competitors |
-| 3 Economics | `market-sizing`, `revenue-model`, `positioning-wedge` | Size, LTV:CAC, positioning |
-| 4 Feasibility | `feasibility-gate` | Not **Reject** |
-| 5 Demand test | `validation-experiments` | Priced test; fail threshold not hit |
-| 6 Decision | `idea-scorecard` | **Strong** or **Conditional go** |
-| 7 Synthesis | `discovery-synthesis` | One researcher pack |
-| After ship | `pmf-sean-ellis` | ≥40% “very disappointed” (target segment) |
+0 Frame · 1 Idea · 2 Market · 3 Economics · 4 Feasibility · 5 Priced demand test · 6 Scorecard · 7 Synthesis · then `pmf-sean-ellis` after ship.
 
-**Evidence:** payment &gt; behavior &gt; signups &gt; compliments &gt; views. **Economics:** kill if LTV:CAC &lt; 2:1; strong go needs ≥ 3:1 (see `revenue-model`).
+**Rules:** payment &gt; behavior &gt; signups &gt; compliments. Kill if LTV:CAC &lt; 2:1 (see `revenue-model`).
 
-### Short path (weekend)
+## Skills (16)
 
-`assumption-map` → `problem-discovery` (8–10 interviews) → `validation-experiments` (priced landing) → `idea-scorecard`
-
-### Example prompts (same topic slug)
-
-```text
-Use assumption-map for solo-validation-board
-Use problem-discovery for solo-validation-board — ICP solo founders pre-PMF
-Use market-research for solo-validation-board
-Use idea-scorecard for solo-validation-board — read discovery/solo-validation-board/ first
-Use discovery-synthesis for solo-validation-board
-```
-
-## All skills (16)
-
-| Skill | Use when |
-| --- | --- |
-| `discovery-playbook` | **Entry** — full flow, routing, artifacts |
-| `assumption-map` | Riskiest assumptions, test queue |
-| `problem-discovery` | Mom Test interviews, ICP, pain |
-| `jtbd-interviews` | Why buyers switch / JTBD |
-| `behavior-led-validation` | One end-to-end orchestration memo |
-| `market-research` | Live market + gap memo |
-| `market-sizing` | TAM / SAM / SOM |
-| `competitor-landscape` | Competitor matrix, battle cards |
-| `positioning-wedge` | Category, wedge, messaging |
-| `revenue-model` | Pricing, LTV:CAC |
-| `feasibility-gate` | Build / wait / reject |
-| `validation-experiments` | Fake door, smoke test, ILI |
-| `idea-scorecard` | Go / conditional / pivot / kill |
-| `discovery-synthesis` | Single summary report |
-| `regulatory-risk-scan` | Regulated domains |
-| `pmf-sean-ellis` | PMF after prototype |
-
-## Workspace (optional)
-
-```
-discovery/INDEX.md
-discovery/<slug>/TOPIC.md
-discovery/<slug>/{briefs,research,experiments,scorecards}/
-```
-
-Key files: `briefs/*-brief.md`, `research/*-{market,competitors,revenue,assumptions,feasibility}.md`, `experiments/*-experiment.md`, `scorecards/*-scorecard.md`, `*-synthesis.md`. Memos use **Facts, Assumptions, Evidence, Analysis, Decision, Next experiment**. Details in `skills/discovery-playbook/SKILL.md`.
-
-## Related (external)
+`discovery-playbook` · `assumption-map` · `problem-discovery` · `jtbd-interviews` · `behavior-led-validation` · `market-research` · `market-sizing` · `competitor-landscape` · `positioning-wedge` · `revenue-model` · `feasibility-gate` · `validation-experiments` · `idea-scorecard` · `discovery-synthesis` · `regulatory-risk-scan` · `pmf-sean-ellis`
 
 ```bash
-npx skills add ferdinandobons/startup-skill -g -y      # strategy, pitch
-npx skills add brandonsgitstub/jtbd-skill -g -y        # JTBD docx workflow
+npx skills add eltntawy/ideation-discovery-skills --list
 ```
+
+Details: `skills/discovery-playbook/SKILL.md`. Optional artifacts: `discovery/<slug>/` (briefs, research, experiments, scorecards).
 
 ## Contributing
 
-Keep each `SKILL.md` under ~500 lines; skill-relative links only. MIT — [LICENSE](LICENSE).
+MIT — [LICENSE](LICENSE). Keep `SKILL.md` files under ~500 lines.
